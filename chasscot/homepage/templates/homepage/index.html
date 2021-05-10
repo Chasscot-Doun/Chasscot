@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Chass'Co</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
+    <!-- main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
+    <!-- smartphone stylesheet -->
+    <link rel="stylesheet" media="(max-width:600px)" href="{% static 'homepage/css/smartphone.css' %}">
+    <!-- tablet stylesheet -->
+    <link rel="stylesheet" media="(max-width:1200px) and (min-width:600px)" href="{% static 'homepage/css/tablet.css' %}">
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <!--      Pour faciliter la trouvaille de nos produits      -->
+            <a class="nav-a" href="#products">Tous nos produits</a>
+            <!--      Tous nos réeaux sociaux      -->
+            <a class="nav-a" href="#network">Nos réseaux</a>
+            <!--      Pourquoi pas les évènements où trouver nos stands ou alors les événements partenaires      -->
+            <a class="nav-a" href="#events">Où nous trouver</a>
+            <!--      ça, c'est pour le client      -->
+            <a class="nav-a" href="#login">Login</a>
+            <a class="nav-a" href="#caddie">Mon Panier</a>
+            <a class="nav-a" href="language">Langue</a>
+        </nav>
+        <img class="logo"  src="{% static '/homepage/images/image_placeholder.jpg' %}" alt="Logo">
+    </header>
+    <main>
+        <h1>En vedette</h1>
+        <!--    En vedette    -->
+        <!--    En vedette, on présenterait un tremplain avec des photos + nom du produit.
+            On pourrait cliquer dessus pour directement arriver à la page du produit. -->
+
+        <h1>En toute saison</h1>
+        <!--    Nos produits réguliers    -->
+        <!--    On fait un tableau avec des bouteilles je pensais en mettre que 16, genre 4x4, de manière bien espacée pour que chaque prduit vive.    -->
+        <!--    Là, j'ai envie de me faire plaisir.    -->
+        <!--    Si le client n'est pas connecté, on présente les produits les plus vendus sur l'année    -->
+        <!--    Si le client est connecté, on lui présente les produits qu'il a l'habitude d'acheter (s'ils ne sont pas saisonniers)    -->
+        <div class="bottle_line">
+            {% for bouteille in bouteilles_en_vente %}
+                <div class="bottle_column">
+                    <h3>{{bouteille.nom_bouteille}}</h3>
+                    <div>{{bouteille.description_bouteille}}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <a href="#contact">Contactez-nous</a>
+        <a href="#mistery">Vous pensez vraiment que notre site est comme les autres ?</a>
+    </footer>
+</body>
+</html>
